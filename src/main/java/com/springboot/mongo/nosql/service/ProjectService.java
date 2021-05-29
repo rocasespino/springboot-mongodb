@@ -18,5 +18,9 @@ public interface ProjectService {
 
     void deleteTask(String id);
 
+    Project updateProject(Project project);
+
+    Task updateTask(Task task);
+
 
 }
