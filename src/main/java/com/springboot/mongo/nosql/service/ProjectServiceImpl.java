@@ -7,6 +7,8 @@ import com.springboot.mongo.nosql.repository.TaskRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Optional;
+
 public class ProjectServiceImpl implements ProjectService {
 
     private final ProjectRepository projectRepository;
@@ -30,5 +32,27 @@ public class ProjectServiceImpl implements ProjectService {
     public Task saveTask(Task task) {
         return taskRepository.save(task);
     }
-    
+
+    @Override
+    public Optional<Project> readProject(String id) {
+        return projectRepository.findById(id);
+    }
+
+    @Override
+    public Optional<Task> readTask(String id) {
+        return taskRepository.findById(id);
+    }
+
+    @Override
+    public void deleteProject(String id) {
+        projectRepository.findById(id).orElseThrow(()->new RuntimeException("Project not found"));
+        projectRepository.deleteById(id);
+    }
+
+    @Override
+    public void deleteTask(String id) {
+        taskRepository.findById(id).orElseThrow(() -> new RuntimeException("Task not found"));
+        taskRepository.deleteById(id);
+    }
+
 }
