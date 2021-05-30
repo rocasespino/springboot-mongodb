@@ -1,16 +1,15 @@
 package com.springboot.mongo.nosql.model;
 
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Version;
 import org.springframework.data.mongodb.core.mapping.Field;
-
-import lombok.Data;
 
 @Data
 public class Task {
 
     @Id
-    private String id;
+    private String _id;
 
     private String projectId;
 

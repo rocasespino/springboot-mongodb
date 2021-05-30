@@ -37,7 +37,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public Project updateProject(Project project) {
-        projectRepository.findById(project.getId()).orElseThrow(() -> new RuntimeException("Project not found"));
+        projectRepository.findById(project.get_id()).orElseThrow(() -> new RuntimeException("Project not found"));
         return projectRepository.save(project);
     }
 

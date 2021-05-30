@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(TaskController.API_URL)
 public class TaskController {
-    public static final String API_URL = "/task";
+    public static final String API_URL = "/tasks";
 
     private final TaskService taskService;
 

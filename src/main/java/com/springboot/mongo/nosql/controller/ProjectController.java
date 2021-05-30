@@ -13,7 +13,7 @@ import java.util.Optional;
 @RequestMapping(ProjectController.API_URL)
 public class ProjectController {
 
-    public static final String API_URL = "/project";
+    public static final String API_URL = "/projects";
 
     private final ProjectService projectService;
 
