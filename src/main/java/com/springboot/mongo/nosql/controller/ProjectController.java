@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -36,6 +37,18 @@ public class ProjectController {
     public ResponseEntity<Project> createProject(@RequestBody Project project){
         Project saved = projectService.saveProject(project);
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
+    }
+
+    @GetMapping("/find-by-name")
+    public ResponseEntity<List<Project>> findByName(@RequestParam String name) {
+        List<Project> projects = projectService.findByName(name);
+        return ResponseEntity.status(HttpStatus.OK).body(projects);
+    }
+
+    @GetMapping("/find-by-name-not")
+    public ResponseEntity<List<Project>> findByNameNot(@RequestParam String name) {
+        List<Project> projects = projectService.findByNameNot(name);
+        return ResponseEntity.status(HttpStatus.OK).body(projects);
     }
 
 }
